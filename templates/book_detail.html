@@ -1,0 +1,27 @@
+{% extends 'default.html' %}
+
+{% block title %}
+Book
+{% endblock title %}
+
+
+{% block content %}
+
+<h3>{{book.name}}</h3>
+<p>{{book.discription}}</p>
+<p>Автор: <a href = "/authors/{{book.author.id}}/">{{book.author.name}}</a></p>
+
+<p>Категории:</p>
+{%for i in book.category.all%}
+<p> - {{i}}</p>
+{%endfor%}
+
+{%if book.author_id == user.author.id%}
+<button><a href="/books/delete/{{book.id}}/">Удалить книгу</a></button>
+<button><a href="/books/update/{{book.id}}/">Редактировать книгу</a></button>
+{%else%}
+{%if user not in book.favourite.all%}
+<button><a href = "/books/like/{{book.id}}">Like</a></button>
+{%endif%}
+{%endif%}
+{% endblock content %}

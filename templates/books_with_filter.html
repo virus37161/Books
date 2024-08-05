@@ -6,19 +6,12 @@ Books
 
 {%block content%}<br>
 
-<p>{%if author_user%}
-    <button><a href = "/books/my/">Мои книги</a></button>
-{%endif%}
-    <button><a href = "/books/search/">Фильтр</a></button><br><hr>
-</p>
-
-<form action="" method="get">
+ <form action="" method="get">
 
        {{ filterset.form.as_p }}
 
-    <input type="submit" value="Найти" />
-</form><br><hr>
-
+       <input type="submit" value="Найти" />
+   </form><br><hr>
 
 {%for book in books%}
     <a href = "/books/{{book.id}}"><h3>{{book.name}}</h3></a>
