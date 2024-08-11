@@ -1,0 +1,20 @@
+{% extends 'default.html' %}
+
+{% block title %}
+Books
+{% endblock title %}
+
+{%block content%}
+<h2>Сохраненные авторы</h2><hr>
+    {%for author in likes%}
+<a href = "/authors/{{author.id}}"><h6>Псевдоним: {{author.name}}</h6></a>
+{%if author.category.all%}
+<p>Жанры:</p>
+{%for category in author.category.all%}
+<p> - {{category.name_category}} </p>
+{%endfor%}
+{%endif%}
+<button><a href = "/authors/dislike/{{author.id}}">Dislike</a></button>
+<br><hr>
+    {%endfor%}
+{% endblock %}

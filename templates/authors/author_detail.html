@@ -1,0 +1,20 @@
+{% extends 'default.html' %}
+
+{% block title %}
+Author
+{% endblock title %}
+
+
+{% block content %}
+
+<h6>{{author.name}}</h6>
+
+
+<p>Книги:</p>
+{%for book in author.book_set.all%}
+<p></p><a href = "/books/{{book.id}}">- {{book.name}}</a></p>
+{%endfor%}
+{%if user not in author.favourite.all%}
+<button><a href = "/authors/like/{{author.id}}">Like</a></button>
+{%endif%}
+{% endblock content %}

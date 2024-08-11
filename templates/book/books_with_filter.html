@@ -1,0 +1,25 @@
+{% extends 'default.html' %}
+
+{% block title %}
+Books
+{% endblock title %}
+
+{%block content%}<br>
+
+ <form action="" method="get">
+
+       {{ filterset.form.as_p }}
+
+       <input type="submit" value="Найти" />
+   </form><br><hr>
+
+{%for book in books%}
+    <a href = "/books/{{book.id}}"><h3>{{book.name}}</h3></a>
+    <p>{{book.discription}}</p>
+    <p>Автор: {{book.author.name}}</p>
+    {%if book.rating%}
+        <p>Оценка: {{book.rating}}</p>
+    {%endif%}
+    <br><hr>
+{%endfor%}
+{% endblock %}

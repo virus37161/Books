@@ -1,0 +1,24 @@
+{% extends 'default.html' %}
+
+{% block content %}
+<h1>Документация по использованию АПИ</h1>
+
+<p><h4>Get запросы</h4>
+http://127.0.0.1:8000/api/books/ - получение всех книг<br>
+Фильтрация http://127.0.0.1:8000/api/books/?id=1&category=1"<br>
+    http://127.0.0.1:8000/api/authors/ - получение всех авторов<br>
+    Фильтрация http://127.0.0.1:8000/api/authors/?id=&name=Джек Лондон<br>
+    http://127.0.0.1:8000/api/category/ - получение списка категорий
+</p>
+<p><h4>Post запросы</h4>
+Для Post запросов необходимо наличие токена, который можно получить по ссылке http://127.0.0.1:8000/api/token/<br>
+<br><h5>Создание книги:</h5>
+JSON cхема:<br>
+data = {<br>
+        "name": "Название книги",<br>
+        "discription": "описание книги",<br>
+        "category": [{"name_category": id_category}]<br>
+    }<br><br>
+Поддерживаются Post и Delete запросы.
+</p>
+{% endblock %}
